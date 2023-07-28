@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mysolution.css">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+        <section class="cards">
+                <div class="card_front">
+                    <div class="card_front-img">
+                        <img src="./images/bg-card-front.png" alt="">
+                        <div class="card_front-text">
+                            <div class="circle">
+                                <div class="circle1"></div>
+                                <div class="circle2"></div>
+                            </div>
+                            <div class="number">
+                                <p id="card-number">0000 0000 0000 0000</p>
+                            </div>
+                            <div class="name">
+                                <p class="cardholder-name" id="card-name">Jane Appleseed</p>
+                                <div class="expiry-date">
+                                    <p id="mm-output">00</p>
+                                    <p>/</p>
+                                    <p id="yy-output">00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                    <div class="card_back-img">
+                        <img src="./images/bg-card-back.png" alt="">
+                        <div class="card_back-text">
+                            <p id="cvc-output">000</p>
+                        </div>
+                    </div>
+        </section>
+        <section class="form">
+            <form id="form" action="#">
+                <label for="card-name">Cardholder Name</label>
+                <input type="text" placeholder="e.g. Jane Appleseed" id="cardholder" class="input-field">
+                <p class="error" id="name-error">can't be blank</p>
+                <label for="card-number">Card Number</label>
+                <input type="text" placeholder="e.g. 1234 5678 9123 0000" id="cardnumber" class="input-field">
+                <p class="error" id="number-error">wrong format, numbers only</p>
+                <div class="expire">
+                    <div class="expire_label">
+                        <label for="expiration">Exp. Date (MM/YY)</label>
+                        <div class="expire-input">
+                            <input type="number" placeholder="MM" id="mm-input" class="input-field date-expire">
+                            <input type="number" placeholder="YY" id="yy-input" class="input-field date-expire">
+                        </div>
+                        <p class="error" id="date-error">can't be blank</p>
+                    </div>
+                    <div class="cvc-number">
+                        <label class="cvc-label" for="cvc">CVC</label>
+                        <input type="number" placeholder="e.g. 123" id="cvc-input" class="input-field">
+                        <p class="error" id="cvc-error">can't be blank</p>
+                    </div>
+                </div>
+                <button id="btn" type="submit">Confirm</button>
+            </form>
+            <div id="submission">
+                <img src="./images/icon-complete.svg" alt="">
+                <h1 class="thank-you">Thank you!</h1>
+                <p class="details">We've added your card details</p>
+                <button id="continue">Continue</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="mysolution.js"></script>
+</body>
+</html>

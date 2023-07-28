@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+:root{
+    ---Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+    ---Red: hsl(0, 100%, 66%);
+    ---White: hsl(0, 0%, 100%);
+    ---Light-grayish-violet: hsl(270, 3%, 87%);
+    ---Dark-grayish-violet: hsl(279, 6%, 55%);
+    ---Very-dark-violet: hsl(278, 68%, 11%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: beige;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background: url(./images/bg-main-desktop.png), var(---White);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 100px 0;
+}
+
+      /* card section */
+
+img{
+    width: 80%;
+}
+.cards{
+    position: relative;
+}
+.card_front-img{
+    position: relative;
+    right: -45px;
+}
+.card_front-text{
+    position: absolute;
+    top: 0;
+    width: 80%;
+    height: -webkit-fill-available;
+    padding: 10px;
+    color: var(---White);
+}
+.circle{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 5%;
+}
+.circle1{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: var(---White);
+    border: none;
+}
+.circle2{
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    border: 1px solid var(---White);
+}
+.number{
+    font-size: 25px;
+    margin-top: 15%;
+    word-spacing: 12px;
+}
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-top: 5%;
+}
+.expiry-date{
+    display: flex;
+}
+.card_back-img{
+    position: relative;
+    text-align: center;
+    left: 55px;
+    top: 20px;
+}
+.card_back-text{
+    position: absolute;
+    right: 85px;
+    top: 80px;
+    color: var(---White);
+}
+.cvc-output{
+    font-size: 14px;
+}
+
+      /* form section */
+
+label{
+    text-transform: uppercase;
+    font-size: 10px;
+}
+form{
+    width: 60%;
+    margin: auto;
+}
+.expire{
+    display: flex;
+    align-items: center;
+}
+.expire_cvc{
+    display: flex;
+    justify-content: space-between;
+    gap: 20%;
+}
+.expire_label{
+    width: 70%;
+    margin-right: 10px;
+}
+.expire-input{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.cvc-label{
+    margin-right: auto;
+}
+.input-field{
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(---Light-grayish-violet);
+    border-radius: 5px;
+    outline: none;
+}
+#btn{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: var(---Very-dark-violet);
+    color: var(---White);
+    cursor: pointer;
+}
+.error{
+    font-size: 10px;
+    color: var(---Red);
+    margin: 5px 0 10px;
+    visibility: hidden;
+}
+
+/* Completed state */
+
+#submission{
+    width: 300px;
+    margin: 0 100px;
+    text-align: center;
+    display: none;
+}
+#submission img{
+    width: 80px;
+}
+.thank-you{
+    margin: 15px auto;
+    letter-spacing: 2px;
+    font-size: 32px;
+    font-weight: 500;
+}
+.details{
+    color: var(---Dark-grayish-violet);
+}
+#continue{
+    width: 90%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(---Very-dark-violet);
+    color: var(---White);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1270px){
+    .number{
+        font-size: 21px;
+    }
+    .name{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 1105px){
+    .number{
+        font-size: 17px;
+    }
+    .name{
+        margin-top: 3%;
+    }
+    .card_back-text{
+        top: 66px;
+    }
+}
+
+/* mobile viewport */
+
+@media screen and (max-width: 940px){
+    .container{
+        flex-direction: column;
+        background: url(./images/bg-main-mobile.png), var(---White);
+        background-repeat: no-repeat;
+        background-size: contain;
+        max-width: 300px;
+        padding: 100px 0 30px;
+        gap: 30px;
+    }
+    img{
+        width: 70%;
+    }
+    .cards{
+        text-align: center;
+    }
+    .card_front{
+        position: absolute;
+        z-index: 1;
+    }
+    .card_front-img{
+        left: -20px;
+    }
+    .card_front-text{
+        left: 45px;
+        width: 70%;
+    }
+    .circle1{
+        width: 20px;
+        height: 20px;
+    }
+    .circle2{
+        width: 10px;
+        height: 10px;
+    }
+    .number{
+        font-size: 13px;
+        margin-top: 15%;
+        text-align: start;
+    }
+    .name{
+        font-size: 10px;
+    }
+    .card_back-img{
+        left: 20px;
+        top: -70px;
+    }
+
+    .card_back-text{
+        right: 70px;
+        top: 52px;
+    }
+    .cvc-output{
+        font-size: 10px;
+    }
+
+    form{
+        width: 90%;
+    }
+    .submission{
+        width: auto;
+        margin: 0;
+    }
+}
+
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <section class="cards">
+            <div class="card_front">
+                <div class="card_front-img">
+                    <img src="./images/bg-card-front.png" alt="">
+                    <div class="card_front-text">
+                        <div class="circle">
+                            <div class="circle1"></div>
+                            <div class="circle2"></div>
+                        </div>
+                        <div class="number">
+                            <p id="card-number">0000 0000 0000 0000</p>
+                        </div>
+                        <div class="name">
+                            <p class="cardholder-name" id="card-name">Jane Appleseed</p>
+                            <div class="expiry-date">
+                                <p id="mm-output">00</p>
+                                <p>/</p>
+                                <p id="yy-output">00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+                <div class="card_back-img">
+                    <img src="./images/bg-card-back.png" alt="">
+                    <div class="card_back-text">
+                        <p id="cvc-output">000</p>
+                    </div>
+                </div>
+    </section>
+    <section class="form">
+        <form id="form" action="#">
+            <label for="card-name">Cardholder Name</label>
+            <input type="text" placeholder="e.g. Jane Appleseed" id="cardholder" class="input-field">
+            <p class="error" id="name-error">can't be blank</p>
+            <label for="card-number">Card Number</label>
+            <input type="text" placeholder="e.g. 1234 5678 9123 0000" id="cardnumber" class="input-field">
+            <p class="error" id="number-error">wrong format, numbers only</p>
+            <div class="expire">
+                <div class="expire_label">
+                    <label for="expiration">Exp. Date (MM/YY)</label>
+                    <div class="expire-input">
+                        <input type="number" placeholder="MM" id="mm-input" class="input-field date-expire">
+                        <input type="number" placeholder="YY" id="yy-input" class="input-field date-expire">
+                    </div>
+                    <p class="error" id="date-error">can't be blank</p>
+                </div>
+                <div class="cvc-number">
+                    <label class="cvc-label" for="cvc">CVC</label>
+                    <input type="number" placeholder="e.g. 123" id="cvc-input" class="input-field">
+                    <p class="error" id="cvc-error">can't be blank</p>
+                </div>
+            </div>
+            <button id="btn" type="submit">Confirm</button>
+        </form>
+        <div id="submission">
+            <img src="./images/icon-complete.svg" alt="">
+            <h1 class="thank-you">Thank you!</h1>
+            <p class="details">We've added your card details</p>
+            <button id="continue">Continue</button>
+        </div>
+    </section>
+</main>
+
+<footer class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="#">Lawal Abdullahi (Ay-shizzi)</a>.
+</footer>
+
+  <script src="mysolution.js"></script>
+</body>
+</html>
